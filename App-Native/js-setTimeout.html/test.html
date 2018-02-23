@@ -1,69 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>js-setTimeout()</title>
+    <meta charset="UTF-8">
+    <title>js-setTimeout()</title>
 </head>
 <body>
-	<div>
-		<h1>just test for setTimeout()</h1>
-	</div>
-	<script>
-		/*var x=7;
-		var i;
-		var delay = delay || 1;
-		// x=0~5
-		setTimeout(function (delay){		  
-	  		for(i=0;i<=5;i++){		  	
-		  		setTimeout(function (){
-		  			x=i;
-			  		console.log("x="+x);
-		  		}(i),1000*delay)
-	  	    }
-		},1000)*/
-		/*setTimeout(function (){		  
-	  		for(i=0;i<=5;i++){
-		  		(function(){
-  			  		setTimeout(function (){
-  			  			x=i;
-  				  		console.log("x="+x);
-  			  		},1000*i)
-		  		})(i);
-	  	    }
-		},1000)*/
-		// 6* x=6
-		/*setTimeout(function (){		  
-	  		for(i=0;i<=5;i++){
-		  		setTimeout(function (){
-		  			x=i;
-			  		console.log("x="+x);
-		  		},1000)
-	  	    }
-		}(),1000)*/
+    <div>
+        <h1>just test for setTimeout()</h1>
+    </div>
+    <script>
+        /*var x=7;
+        var i;
+        var delay = delay || 1;
+        // x=0~5
+        setTimeout(function (delay){          
+            for(i=0;i<=5;i++){          
+                setTimeout(function (){
+                    x=i;
+                    console.log("x="+x);
+                }(i),1000*delay)
+            }
+        },1000)*/
+        /*setTimeout(function (){         
+            for(i=0;i<=5;i++){
+                (function(){
+                    setTimeout(function (){
+                        x=i;
+                        console.log("x="+x);
+                    },1000*i)
+                })(i);
+            }
+        },1000)*/
+        // 6* x=6
+        /*setTimeout(function (){         
+            for(i=0;i<=5;i++){
+                setTimeout(function (){
+                    x=i;
+                    console.log("x="+x);
+                },1000)
+            }
+        }(),1000)*/
         /*
-        	提示：setTimeout() 只执行 code 一次。
-        	如果要多次调用，请使用 setInterval() 或者让 code 自身再次调用 setTimeout()。
-        	http://www.w3school.com.cn/jsref/met_win_settimeout.asp
+            提示：setTimeout() 只执行 code 一次。
+            如果要多次调用，请使用 setInterval() 或者让 code 自身再次调用 setTimeout()。
+            http://www.w3school.com.cn/jsref/met_win_settimeout.asp
         */
         /*var y=8;
-		var i;
-		setInterval(function(){
-			for(i=0;i<=5;i++){
-		  		y=i;
-		  		console.log("y="+y);
-		  	}
-		},1000)*/
-		// 递归 start(counter)
-		function start(counter){
-		  if(counter < 6){
-		    setTimeout(function(){
-		      counter++;
-		      console.log(counter);
-		      start(counter);
-		    }, 1000);
-		  }
-		}
-		start(0);
-	</script>
+        var i;
+        setInterval(function(){
+            for(i=0;i<=5;i++){
+                y=i;
+                console.log("y="+y);
+            }
+        },1000)*/
+        // 递归 start(counter)
+        function start(counter){
+          if(counter < 6){
+            setTimeout(function(){
+              counter++;
+              console.log(counter);
+              // recursive function
+              start(counter);
+            }, 1000);
+          }
+        }
+        start(0);
+    </script>
 </body>
 </html>
