@@ -77,3 +77,29 @@ https://caniuse.com/#feat=es5
 
 
 https://github.com/vuejs/vue-cli
+
+
+## PWA
+
+https://github.com/SangKa/PWA-Book-CN
+
+https://huangxuan.me/2017/07/12/upgrading-eleme-to-pwa/
+
+
+https://zhuanlan.zhihu.com/p/36116211
+
+https://vuepress.vuejs.org/zh/
+
+https://www.netlify.com/
+
+
+https://zhuanlan.zhihu.com/ElemeFE
+
+### 自定义 checkbox
+
+https://zhuanlan.zhihu.com/p/35479957
+
+
+### H5 骨架页面
+
+https://zhuanlan.zhihu.com/p/34702561
