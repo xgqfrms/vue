@@ -87,6 +87,7 @@ const recursiveTrs = (cols = []) => {
             if(children !== null) {
                 // console.log(`${i} new trs =`, trs);
                 // trs += recursiveTrs(children);
+                // peer  deep ???
                 delayTest(children);
             }
         }
@@ -171,3 +172,5 @@ const cols = [
         "children": null,
     }
 ];
+
+// bug
