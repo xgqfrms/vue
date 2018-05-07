@@ -69,6 +69,7 @@ const recursiveTrs = (cols = []) => {
     const delayTest = (children = []) => {
         newTr += recursiveTrs(children);
     };
+    let arr = [];
     cols.forEach(
         (col, i) => {
             let {
@@ -88,7 +89,11 @@ const recursiveTrs = (cols = []) => {
                 // console.log(`${i} new trs =`, trs);
                 // trs += recursiveTrs(children);
                 // peer  deep ???
-                delayTest(children);
+                children.forEach(
+                    (obj, i) => {
+                        arr.push(obj);
+                    }
+                );
             }
         }
     );
@@ -97,6 +102,9 @@ const recursiveTrs = (cols = []) => {
             ${ths}
         </tr>
     `;
+    if (arr.length) {
+        delayTest(arr);
+    }
     trs += newTr;
     console.log(`return trs =`, trs);
     return trs;
