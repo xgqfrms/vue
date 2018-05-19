@@ -1,45 +1,52 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <meta http-equiv="X-UA-Compatible" content="chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="./stylesheets/stylesheet.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="./stylesheets/github-light.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="./stylesheets/print.css" media="print">
-        <!--[if lt IE 9]>
-            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-        <title>Vue by xgqfrms</title>
-    </head>
-    <body>
-        <header>
-            <div class="inner">
-                <h1>Vue 2.x</h1>
-                <a href="https://github.com/xgqfrms/vue" class="button"><small>View project on</small> GitHub</a>
-            </div>
-        </header>
-        <div id="content-wrapper">
-            <div class="inner clearfix">
-                <section id="main-content">
-                    <h1>
-                        <a id="vue" class="anchor" href="#vue" aria-hidden="true">
-                            <span aria-hidden="true" class="octicon octicon-link"></span>
-                        </a>
-                        vue
-                    </h1>
-                    <p>
-                        <g-emoji alias="cn" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f1e8-1f1f3.png" ios-version="6.0">🇨🇳</g-emoji> Simple yet powerful library for building modern web interfaces.
-                        <a href="https://github.com/xgqfrms/vue">https://github.com/xgqfrms/vue</a>
-                    </p>
-                </section>
-            </div>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Vue 2.x Tutorails</title>
+</head>
+<body>
+    <section>
+        <h1>
+            <a href="https://vue.xgqfrms.xyz">https://vue.xgqfrms.xyz</a>
+        </h1>
+        <div id="vue_app">
+            <h1>title: {{title}}</h1>
+            <h2>website: {{site}}</h2>
+            <h2>url: {{url}}</h2>
+            <h2>{{details()}}</h2>
         </div>
-        <!-- js -->
-        <!-- development version, includes helpful console warnings -->
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <!-- production version, optimized for size and speed -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
-    </body>
+    </section>
+    <!-- libs -->
+    <!-- <script src="https://unpkg.com/vue/dist/vue.min.js"></script> -->
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.min.js"></script>
+    <!-- js -->
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#vue_app',
+            // vm === data
+            data: {
+                title: "Vue 2.x Tutorials",
+                url: "vue.xgqfrms.xyz",
+                site: "https://vue.xgqfrms.xyz",
+                alexa: "100",
+            },
+            methods: {
+                details: function() {
+                    let site = this.site;
+                    return  `${site} 学的不仅是技术，更是梦想！`;
+                }
+            }
+        });
+        vm.site = "https://vue.xgqfrms.xyz";
+    </script>
+</body>
 </html>

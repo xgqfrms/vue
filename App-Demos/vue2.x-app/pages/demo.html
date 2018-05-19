@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue 2.x Demo</title>
+</head>
+<body>
+    <section>
+        <div id="vue_det">
+            <h1>site : {{site}}</h1>
+            <h1>url : {{url}}</h1>
+            <h1>{{details()}}</h1>
+        </div>
+    </section>
+    <!-- libs -->
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <!-- <script src="https://unpkg.com/vue@2.5.16/dist/vue.min.js"></script> -->
+    <!-- js -->
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#vue_det',
+            // vm === data
+            data: {
+                site: "Vue 2.x 教程",
+                url: "vue.xgqfrms.xyz",
+                alexa: "100",
+            },
+            methods: {
+                // arrow function bug
+                // details: () => {
+                //     let site = this.site;
+                //     return  `${site} 学的不仅是技术，更是梦想！`;
+                // },
+                details: function() {
+                    let site = this.site;
+                    return  `${site} 学的不仅是技术，更是梦想！`;
+                }
+            }
+        });
+        vm.site = "https://vue.xgqfrms.xyz";
+    </script>
+</body>
+</html>
