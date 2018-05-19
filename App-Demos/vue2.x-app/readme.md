@@ -61,10 +61,15 @@ $ browser-sync start --server --files "./*.html"
 
 ```
 
+http://localhost:3000/demo.html
+
+
 ## devtools & browser-sync
 
 https://github.com/xgqfrms-GitHub/browser-sync
 
 ![img](https://images2018.cnblogs.com/blog/740516/201805/740516-20180519230647866-1267063218.png)
+
+
 
 
