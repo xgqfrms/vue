@@ -31,3 +31,17 @@ https://github.com/cyan33/v-dom/blob/master/src/diff.js
 
 https://github.com/cyan33/v-dom/tree/master/src
 
+
+## browser-sync
+
+
+```sh
+
+$ npm i -g browser-sync
+
+$ browser-sync start --server --files "./*.html"
+
+```
+
+http://localhost:3000/demo.html
+
