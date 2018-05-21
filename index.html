@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="./stylesheets/index.css" media="screen">
     <link rel="stylesheet" type="text/css" href="./stylesheets/github-light.css" media="screen">
     <link rel="stylesheet" type="text/css" href="./stylesheets/print.css" media="print">
+    <link rel="stylesheet" href="./stylesheets/seo.css">
     <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -48,6 +49,10 @@
             }
         });
         vm.site = "https://vue.xgqfrms.xyz";
+        setTimeout(() => {
+            let div = document.querySelector("#vue_app");
+            div.style.display = "block";
+        }, 0);
     </script>
 </body>
 </html>
