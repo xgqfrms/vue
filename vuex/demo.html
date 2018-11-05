@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="xgqfrms">
+    <meta name="generator" content="VS code">
+    <title>vuex demo</title>
+</head>
+
+<body>
+    <section>
+        <h1>
+            <a href="https://feiqa.xgqfrms.xyz/index.html"></a>
+        </h1>
+    </section>
+    <div id="app">
+        <hello></hello>
+    </div>
+    <!-- libs -->
+    <script src="./vue.js"></script>
+    <script src="./vuex.js"></script>
+    <!-- js -->
+    <script>
+        Vue.use(Vuex);
+        var myStore = new Vuex.Store({
+            // 存放组件之间共享的数据
+            state: {
+                name: "xgqfrms",
+                age: 23,
+                num: 1
+            },
+            // 显式的更改state里的数据
+            mutations: {
+                change: function(state, a) {    
+                    console.log(state.num += a);
+                },
+                changeAsync: function(state, a) {
+                    console.log(state.num += a);
+                }
+            },
+            // 过滤state数据
+            getters: {
+                getAge: function(state) {
+                    if (state.age > 18) {
+                        return state.age
+                    } else {
+                        state.age = "未成年";
+                    }
+                    return state.age
+                }
+            },
+            // 设置延时 Async methods
+            actions: { 
+                add: function(context, value) {
+                    setTimeout(function() {
+                        //提交事件
+                        context.commit('changeAsync', value);
+                        // context：context 是与 store 实例具有相同方法和属性的对象。
+                        // 可以通过context.state 和 context.getters 来获取 state 和 getters。
+                    }, 1000)
+                }
+            },
+        });
+        // vue components
+        Vue.component("hello", {
+            template: `
+                <div>
+                    <p>
+                        姓名： {{ name }} <br/>
+                        年龄： {{ age }} <br/>
+                        次数： {{ num }} <br/>
+                    </p>
+                    <button @click="changeNum">
+                        changeNum
+                    </button>
+                    <button @click="changeNumAnsyc">
+                        changeNumAnsyc
+                    </button>
+                </div>
+            `,
+            computed: {
+                name: function() {
+                    return this.$store.state.name;
+                    //this.$store 获取到 store, this.$store.state 来获取状态对象，
+                },
+                age: function() {
+                    return this.$store.getters.getAge;
+                },
+                num: function() {
+                    return this.$store.state.num;
+                }
+            },
+            mounted: function() {
+                console.log(this);
+            },
+            methods: {
+                changeNum: function() {
+                    //在组件中提交
+                    this.$store.commit('change', 10);
+                    //this.$store.commit 来触发之前定义好的 mutations 中的方法  change是mutations里的函数，a=10
+                },
+                changeNumAnsyc: function() {
+                    this.$store.dispatch('add', 5);
+                    //dispatch：翻译为‘派发、派遣’的意思，触发事件时，dispatch就会通知actions（跟commit一样一样的）参数跟commit也是一样的。
+                }
+            },
+            data: function() {
+                return {
+                    // num:5
+                }
+            }
+        });
+        // 
+        new Vue({
+            el: "#app",
+            data: {
+                name: "vue--vuek-app"
+            },
+            store: myStore,
+            mounted: function() {
+                console.log(this);
+            }
+        });
+    </script>
+</body>
+
+</html>

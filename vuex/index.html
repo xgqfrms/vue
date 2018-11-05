@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="xgqfrms">
+    <meta name="generator" content="VS code">
+    <title>Vuex Demo</title>
+    <!-- css -->
+    <style lang="css">
+        .inputbar {
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            padding: 0 5px 10px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <!-- libs -->
+    <script src="./vue.js"></script>
+    <script src="./vuex.js"></script>
+    <!-- <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vuex"></script> -->
+    <!-- js -->
+    <script>
+        Vue.use(Vuex);
+        const store = new Vuex.Store({
+            state: {
+                count: 0,
+                firstName: 'xgqfrms',
+                lastName: 'webgeeker'
+            },
+            mutations: {
+                increment(state, count) {
+                    state.count++
+                },
+                changeFirstName(state) {
+                    state.firstName = 'changed'
+                },
+                changeLastName(state) {
+                    state.lastName = 'changed'
+                }
+            },
+            getters: {
+                fullName(state) {
+                    return state.firstName + ' ' + state.lastName
+                }
+            }
+        });
+        const Counter = {
+            // data: {
+            //     fullName: `xyz`,
+            //     firstName: `abc`,
+            // },
+            template: `
+                <div>
+                    <div>count: {{ count }}</div>
+                    <h1>{{ fullName }}</h1>
+                    <h2>{{ this.$store.state.firstName }}</h2>
+                    <button @click="add">+ the count</button>
+                    <button @click="changeFirstName">changeFirstName</button>
+                    <button @click="changeLastName">changeLastName</button>
+                    <div class="inputbar">
+                        <p>firstname:</p><input v-model="$store.state.firstName"></input>
+                        <p>lastname:</p><input v-model="$store.state.lastName"/>
+                    </div>
+                </div>
+            `,
+            computed: {
+                // store getter ??? computed state
+                count() {
+                    return this.$store.state.count
+                },
+                //...Vuex.mapState(['count']) 等价
+                fullName() {
+                    return this.$store.getters.fullName
+                },
+                //...Vuex.mapGetters(['fullName']) 等价
+            },
+            methods: {
+                // store actions ??? dispatch actions 
+                add() {
+                    this.$store.commit('increment')
+                },
+                changeFirstName() {
+                    this.$store.commit('changeFirstName')
+                },
+                changeLastName() {
+                    this.$store.commit('changeLastName')
+                },
+            }
+        };
+        const app = new Vue({
+            el: '#app',
+            store,
+            components: {
+                Counter
+            },
+            template: `
+                <div class="app">
+                    <counter></counter>
+                </div>
+            `,
+        });
+    </script>
+</body>
+
+</html>
