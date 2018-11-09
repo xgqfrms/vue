@@ -1,4 +1,7 @@
-# shit-vue-cli
+# vue cli 3
+
+
+> shit-vue-cli
 
 ```sh
 # development
