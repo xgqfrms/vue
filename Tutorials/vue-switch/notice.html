@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="xgqfrms">
+    <meta name="generator" content="VS code">
+    <title>shit vue & shit iview</title>
+    <!-- https://vue.xgqfrms.xyz/index.html -->
+    <!-- import Vue.js -->
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+    <!-- import stylesheet -->
+    <link rel="stylesheet" href="https://unpkg.com/iview/dist/styles/iview.css">
+    <!-- import iView -->
+    <script src="https://unpkg.com/iview/dist/iview.min.js"></script>
+<!-- 
+    <link rel="stylesheet" href="./ivew-3.3.3/iview.css">
+    <script src="./ivew-3.3.3/vue-2.6.10/vue.min.js"></script>
+    <script src="./ivew-3.3.3/iview.min.js"></script>
+-->
+</head>
+
+<body>
+    <section>
+        <div id="app">
+            <i-button @click="show">Click me!</i-button>
+            <Modal v-model="visible" title="Welcome">Welcome to iView</Modal>
+            <template>
+                <!-- @on-change -->
+                <i-switch
+                    size="large"
+                    @on-change="onSwitchChange"
+                    v-model="isGet">
+                    <span slot="open">开启</span>
+                    <span slot="close">关闭</span>
+                </i-switch>
+                <!-- <i-switch
+                    size="large"
+                    on-change="onSwitchChange"
+                    v-model="isGet">
+                    <span slot="open">开启</span>
+                    <span slot="close">关闭</span>
+                </i-switch> -->
+                <i-switch
+                    size="large"
+                    @change="onSwitchChange"
+                    v-model="isGet">
+                    <span slot="open">开启</span>
+                    <span slot="close">关闭</span>
+                </i-switch>
+                <!-- <i-switch
+                    size="large"
+                    on-change="onSwitchChange"
+                    :value="isGet">
+                    <span slot="open">开启</span>
+                    <span slot="close">关闭</span>
+                </i-switch> -->
+            </template>
+            <template v-if="isGet">
+                <Table :columns="colsGET" :data="dataGET"></Table>
+            </template>
+            <template v-else>
+                <Table :columns="colsPOST" :data="dataPOST"></Table>
+            </template>
+            <!-- <template>
+                <Switch size="large">
+                    <span slot="open">开启</span>
+                    <span slot="close">关闭</span>
+                </Switch>
+            </template> -->
+        </div>
+    </section>
+    <!-- js -->
+    <script>
+        // import {Button, Switch } from "iview";
+        // console.log(`iview`, iview);
+        new Vue({
+            el: "#app",
+            components: {
+                "Switch": iview.Switch,
+            },
+            data: {
+                visible: false,
+                isGet: true,
+                colsGET: [],
+                dataGET: [],
+                colsPOST: [],
+                dataPOST: [],
+            },
+            methods: {
+                show: function () {
+                    this.visible = true;
+                    this.test();
+                },
+                test: function () {
+                    let value = this.isGet;
+                    console.log(`switch value=`, value);
+                },
+                onSwitchChange: function () {
+                    // this.test();
+                    alert(`switch ???`);
+                    this.isGet = !this.isGet;
+                },
+                // onSwitchChange(value) {
+                //     console.log(`switch value=`, value);
+                // },
+            },
+        })
+      </script>
+</body>
+</html>
