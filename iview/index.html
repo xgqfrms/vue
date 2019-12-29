@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="xgqfrms">
+    <meta name="generator" content="VS code">
+    <title>vue & iview</title>
+    <!-- https://vue.xgqfrms.xyz/index.html -->
+    <!-- import stylesheet -->
+    <link rel="stylesheet" href="https://unpkg.com/iview/dist/styles/iview.css">
+</head>
+<body>
+    <section>
+        <div id="app">
+            <i-button @click="show">Click me!</i-button>
+            <Modal v-model="visible" title="Welcome">Welcome to iView</Modal>
+        </div>
+    </section>
+    <!-- libs -->
+    <!-- import Vue.js -->
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+    <!-- import iView -->
+    <script src="https://unpkg.com/iview/dist/iview.min.js"></script>
+    <!-- js -->
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                visible: false
+            },
+            methods: {
+                show: function () {
+                    this.visible = true;
+                }
+            }
+        })
+      </script>
+</body>
+</html>
