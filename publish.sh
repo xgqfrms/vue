@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 rm -rf ./_book
 gitbook build
 git checkout gh-pages
